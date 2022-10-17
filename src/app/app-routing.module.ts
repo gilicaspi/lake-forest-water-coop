@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainContentComponent } from 'src/app/main-content/main-content.component';
 
 const routes: Routes = [
-  { path: 'temp', component: MainContentComponent}
+  { path: 'temp', component: MainContentComponent},
+  { path: '**', component: MainContentComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,35 @@
+.table {
+  text-align: right;
+  width: fit-content;
+  thead {
+    font-family: "Roboto Slab", "Helvetica Neue", serif;
+    font-size: 16px;
+    color: var(--gray);
+    font-weight: 800;
+    th {
+      padding: 4px 16px;
+    }
+  }
+  tr {
+    font-family: "Roboto", "Helvetica Neue", serif;
+    font-size: 16px;
+    &:nth-child(even) {
+      background: var(--beige-light);
+    }
+    td {
+      padding: 4px 16px;
+    }
+  }
+
+  &--number {
+    // TODO: Gil Note: Find a better fixed-width font than courier
+    font-family: 'Roboto Mono', Courier, serif;
+    font-weight: 400;
+  }
+  &--bold {
+    font-weight: 600;
+  }
+  &--justify {
+    text-align: justify;
+  }
+}
