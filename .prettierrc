@@ -1,0 +1,21 @@
+{
+  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+  "printWidth": 120,
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "bracketSpacing": true,
+  "bracketSameLine": true,
+  "overrides": [
+    {
+      "files": "*.sql",
+      "options": {
+        "plugins": ["prettier-plugin-sql"],
+        "formatter": "sql-formatter",
+        "language": "postgresql",
+        "uppercase": false
+      }
+    }
+  ]
+}

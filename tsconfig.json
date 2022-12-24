@@ -1,32 +1,61 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2020",
-    "module": "es2020",
+    "paths": {
+      "common/*": [
+        "../common/*"
+      ]
+    },
+    "outDir": "./build",
+    "module": "esnext",
+    "target": "es2015",
     "lib": [
-      "es2020",
+      "es6",
       "dom"
-    ]
+    ],
+    "types": [
+      "node",
+      "jest",
+      "@testing-library/jest-dom"
+    ],
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "inlineSources": true,
+    "noFallthroughCasesInSwitch": true,
+    "preserveSymlinks": true,
+    "incremental": true,
+    "allowJs": true /* Allow javascript files to be compiled. */,
+    "sourceMap": true /* Generates corresponding '.map' file. */,
+    "strict": true /* Enable all strict type-checking options. */,
+    "strictNullChecks": true /* Enable strict null checks. */,
+    "noImplicitThis": true /* Raise error on 'this' expressions with an implied 'any' type. */,
+    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+    "jsx": "preserve"
   },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  }
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    ".yarn"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "declare_modules.d.ts",
+    "src/types/express/index.d.ts"
+  ]
 }
