@@ -1,0 +1,120 @@
+{
+  "extends": ["eslint:recommended", "next", "plugin:tailwindcss/recommended", "plugin:jest-dom/recommended"],
+  "plugins": ["eslint-plugin-tailwindcss", "jest-dom"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  "ignorePatterns": ["**/*.snap", "**/src/common/*"],
+  "rules": {
+    "max-lines": ["error", { "max": 256 }],
+    "ban/ban": [
+      1,
+      { "name": ["Math", "random"], "message": "Prefer the use of WebPRNG, which supports deterministic seeds" },
+      { "name": ["window", "scrollTo"], "message": "Prefer the use of scrollWindowToTop" }
+    ],
+    "import/no-anonymous-default-export": [
+      "off",
+      {
+        "patterns": ["**/*.stories.mdx", "**/*.stories.@(js|jsx|ts|tsx)"]
+      }
+    ],
+    "no-restricted-properties": [
+      2,
+      {
+        "object": "React",
+        "property": "lazy",
+        "message": "Please use lazyRetry instead"
+      },
+      {
+        "property": "weekday",
+        "message": "Use getDateTimeDayOfWeek instead"
+      },
+      {
+        "property": "getDay",
+        "message": "Use getDateTimeDayOfWeek instead"
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["*/gqlNodeTypings.generated", "gqlNodeTypings.generated", "@rschedule/*"],
+        "paths": [
+          {
+            // These are bad because they use NODE_ENV
+            "name": "apollo-utilities",
+            "importNames": ["getEnv", "isDevelopment", "isEnv", "isProduction", "isDevelopment", "isTest"],
+            "message": "These are bad because they use NODE_ENV, used 'common/EnvironmentUtilities' instead."
+          },
+          {
+            "name": "react-datepicker",
+            "message": "Use shared/design-library/DatePicker and import async"
+          },
+          {
+            "name": "react-router",
+            "importNames": ["useHistory"],
+            "message": "Prefer to use useHistory from shared/hooks/ for improved typing."
+          },
+          {
+            "name": "react-router",
+            "importNames": ["useLocation"],
+            "message": "Prefer to use useLocation from shared/hooks/ for improved typing."
+          }
+        ]
+      }
+    ],
+    "prefer-const": "error",
+    "no-console": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "react/no-unescaped-entities": 0,
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-object-literal-type-assertion": "off",
+    "@typescript-eslint/member-delimiter-style": "warn",
+    "@typescript-eslint/type-annotation-spacing": "warn",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ],
+    "@typescript-eslint/no-floating-promises": "warn",
+    "react/jsx-no-target-blank": "off",
+    "indent": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/no-empty-interface": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/consistent-type-assertions": [
+      "warn",
+      {
+        "assertionStyle": "never"
+      }
+    ]
+  },
+  "overrides": []
+}
