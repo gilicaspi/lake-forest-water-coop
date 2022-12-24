@@ -1,3 +1,4 @@
+import { MainContent } from 'components/content/main-content';
 import Layout from 'components/layout';
 import Head from 'next/head';
 import React from 'react';
@@ -15,7 +16,7 @@ const Home: React.FC<IProps> = ({ title }) => {
         {/* TODO: Gil Note: Implement meta description for SEO? */}
         <meta name='description' content='Lake forest water coop' />
       </Head>
-      <h1 className='font-serif text-3xl font-black'>{title}</h1>
+      <MainContent />
     </Layout>
   );
 };
