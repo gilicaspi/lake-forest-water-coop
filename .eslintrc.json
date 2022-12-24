@@ -1,6 +1,21 @@
 {
-  "extends": ["eslint:recommended", "next", "plugin:tailwindcss/recommended", "plugin:jest-dom/recommended"],
-  "plugins": ["eslint-plugin-tailwindcss", "jest-dom"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "plugin:functional/external-recommended",
+    "plugin:functional/recommended",
+    "plugin:functional/stylistic",
+    "plugin:eslint-comments/recommended",
+    "eslint:recommended", "next", "plugin:tailwindcss/recommended", "plugin:jest-dom/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -9,6 +24,7 @@
       "jsx": true
     }
   },
+  "plugins": ["ban", "functional", "eslint-plugin-tailwindcss", "jest-dom"],
   "settings": {
     "react": {
       "pragma": "React",
@@ -20,10 +36,107 @@
       }
     }
   },
-  "ignorePatterns": ["**/*.snap", "**/src/common/*"],
+  "ignorePatterns": ["**/*.snap"],
+
   "rules": {
+    "import/prefer-default-export": "off",
+    "max-len": [
+      "warn",
+      {
+        "code": 120,
+        "ignorePattern": "^import\\s.+\\sfrom\\s.+;$",
+        "ignoreUrls": true
+      }
+    ],
+    "no-plusplus": "off",
+    "@typescript-eslint/naming-convention": "warn",
+    "@typescript-eslint/no-loop-func": "warn",
+    "@typescript-eslint/no-non-null-assertion": "warn",
+    "@typescript-eslint/no-redeclare": "warn",
+    "@typescript-eslint/no-shadow": "warn",
+    "@typescript-eslint/no-throw-literal": "warn",
+    "@typescript-eslint/no-unused-expressions": "warn",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/no-var-requires": "warn",
+    "@typescript-eslint/prefer-nullish-coalescing": "warn",
+    "@typescript-eslint/prefer-optional-chain": "warn",
+    "@typescript-eslint/switch-exhaustiveness-check": "warn",
+    "array-callback-return": "warn",
+    "class-methods-use-this": "warn",
+    "consistent-return": "warn",
+    "default-param-last": "warn",
+    "eslint-comments/disable-enable-pair": "warn",
+    "eslint-comments/no-unlimited-disable": "warn",
+    "eslint-comments/require-description": "warn",
+    "global-require": "warn",
+    "import/no-cycle": "warn",
+    "import/no-dynamic-require": "warn",
+    "import/no-extraneous-dependencies": "warn",
+    "import/no-import-module-exports": "warn",
+    "import/no-mutable-exports": "warn",
+    "import/no-named-as-default": "warn",
+    "import/no-named-default": "warn",
+    "import/order": "warn",
+    "max-classes-per-file": "warn",
+    "no-alert": "warn",
+    "no-await-in-loop": "warn",
+    "no-bitwise": "warn",
+    "no-nested-ternary": "warn",
+    "no-param-reassign": "warn",
+    "no-promise-executor-return": "warn",
+    "no-restricted-globals": "warn",
+    "no-restricted-syntax": "warn",
+    "no-underscore-dangle": "warn",
+
+    "functional/functional-parameters": [
+      "error",
+      {
+        "allowRestParameter": true,
+        "allowArgumentsKeyword": false,
+        "enforceParameterCount": false
+      }
+    ],
+    "functional/immutable-data": [
+      "warn",
+      {
+        "ignoreClass": "fieldsOnly",
+        "ignoreImmediateMutation": true
+      }
+    ],
+    "functional/no-class": "off",
+    "functional/no-conditional-statement": "off",
+    "functional/no-expression-statement": "off",
+    "functional/no-let": [
+      "warn",
+      {
+        "allowInForLoopInit": true
+      }
+    ],
+    "functional/no-loop-statement": "warn",
+    "functional/no-mixed-type": "off",
+    "functional/no-return-void": "off",
+    "functional/no-this-expression": "off",
+    "functional/no-throw-statement": "off",
+    "functional/no-try-statement": [
+      "error",
+      {
+        "allowCatch": true,
+        "allowFinally": true
+      }
+    ],
+    "functional/prefer-readonly-type": "off",
+    "@typescript-eslint/prefer-readonly-parameter-types": "off",
+    "@typescript-eslint/prefer-readonly": "off",
+    "functional/prefer-tacit": [
+      "warn",
+      {
+        "assumeTypes": {
+          "allowFixer": false
+        }
+      }
+    ],
     "max-lines": ["error", { "max": 256 }],
-    "ban                                                                /ban": [
+    "ban/ban": [
       1,
       { "name": ["Math", "random"], "message": "Prefer the use of WebPRNG, which supports deterministic seeds" },
       { "name": ["window", "scrollTo"], "message": "Prefer the use of scrollWindowToTop" }

@@ -1,31 +1,28 @@
-import { oneLine } from 'common-tags';
-import Head from 'next/head';
-import Link from 'next/link';
-import React from 'react';
 import Layout from 'components/layout';
+import Head from 'next/head';
+import React from 'react';
 
-interface IProps {}
+interface IProps {
+  title: string;
+}
 
-const Home: React.FC<IProps> = ({}) => {
+const Home: React.FC<IProps> = ({ title }) => {
   return (
     <Layout>
       <Head>
         <title>TEST TITLE</title>
         <meta name='og:title' content='TEST TITLE' />
         {/* TODO: Gil Note: Implement meta description for SEO? */}
-        <meta
-          name='description'
-          content='Lake forest water coop'
-        />
+        <meta name='description' content='Lake forest water coop' />
       </Head>
-      <h1 className='font-serif text-3xl font-black'>GIL TEST</h1>
+      <h1 className='font-serif text-3xl font-black'>{title}</h1>
     </Layout>
   );
 };
 
 export async function getStaticProps(): Promise<{ props: IProps }> {
-  return  {
-    props:  {},
+  return {
+    props: { title: 'GIL TEST' },
   };
 }
 
