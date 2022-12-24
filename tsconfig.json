@@ -1,11 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "common/*": [
-        "../common/*"
-      ]
-    },
     "outDir": "./build",
     "module": "esnext",
     "target": "es2015",

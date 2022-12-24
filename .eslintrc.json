@@ -23,7 +23,7 @@
   "ignorePatterns": ["**/*.snap", "**/src/common/*"],
   "rules": {
     "max-lines": ["error", { "max": 256 }],
-    "ban/ban": [
+    "ban                                                                /ban": [
       1,
       { "name": ["Math", "random"], "message": "Prefer the use of WebPRNG, which supports deterministic seeds" },
       { "name": ["window", "scrollTo"], "message": "Prefer the use of scrollWindowToTop" }
