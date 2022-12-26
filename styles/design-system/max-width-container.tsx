@@ -5,5 +5,5 @@ interface IProps {
   children?: React.ReactNode;
 }
 export const MaxWidthContainer: React.FC<IProps> = ({ className, children }) => {
-  return <div className={`w-full md:w-[800px] ${className}`}>{children}</div>;
+  return <div className={`w-full md:w-[800px] md:max-w-[800px] ${className}`}>{children}</div>;
 };

@@ -9,7 +9,7 @@ import { MaxWidthContainer } from 'styles/design-system/max-width-container';
 export const MainContent: React.FC = () => {
   return (
     <>
-      <MaxWidthContainer className='flex flex-col self-center px-6 text-gray-700'>
+      <MaxWidthContainer className='flex flex-col self-center px-6 pt-12 text-gray-700'>
         <div className='mb-6 flex flex-col font-serif text-black'>
           <h1 className='text-3xl font-bold'>
             <i className='fa-solid fa-faucet-drip mr-4'></i>2021 Consumer Confidence Report Data
