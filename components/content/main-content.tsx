@@ -2,6 +2,7 @@
 import { Section } from 'components/content/section';
 import { SECTION_COPY } from 'components/content/section-copy';
 import { ReportTable, ReportTableBody, ReportTableHead } from 'components/content/table';
+import Link from 'next/link';
 import React from 'react';
 import { MaxWidthContainer } from 'styles/design-system/max-width-container';
 
@@ -13,7 +14,15 @@ export const MainContent: React.FC = () => {
           <h1 className='text-3xl font-bold'>
             <i className='fa-solid fa-faucet-drip mr-4'></i>2021 Consumer Confidence Report Data
           </h1>
-          <h2 className='text-xl font-semibold'>LAKE FOREST WATER COOP, PWS ID: 11302324</h2>
+          <h2 className='text-xl font-semibold'>
+            LAKE FOREST WATER COOP,{' '}
+            <Link
+              className='underline hover:text-gray-500'
+              href='https://dnr.wi.gov/dwsviewer/DS/View/134786'
+              rel='nofollow'>
+              PWS ID: 11302324
+            </Link>
+          </h2>
         </div>
 
         <Section content={SECTION_COPY.i18n_info.content} className={'mb-6 italic'} />
@@ -61,7 +70,7 @@ export const MainContent: React.FC = () => {
 
         <Section title='Definitions' className={'mb-4'} />
       </MaxWidthContainer>
-      <div className='w-full px-6'>
+      <div className='w-full overflow-scroll px-6'>
         <ReportTable className='mb-6'>
           <ReportTableHead>
             <tr>
@@ -200,7 +209,7 @@ export const MainContent: React.FC = () => {
         <Section content={SECTION_COPY.detected_contaminants.content} className={'mb-6'} />
         <Section className='mb-4' title='Inorganic Contaminants' />
       </MaxWidthContainer>
-      <div className='w-full px-6'>
+      <div className='w-full overflow-scroll px-6'>
         <ReportTable className='mb-6'>
           <ReportTableHead>
             <tr>
@@ -278,7 +287,7 @@ export const MainContent: React.FC = () => {
         </ReportTable>
       </div>
       {/* TODO: Gil Note: Better divider class than just 'full screen divider' */}
-      <div className='mb-12 w-full border-t-2 border-gray-100 px-6 pt-6'>
+      <div className='mb-12 w-full w-full overflow-scroll border-t-2 border-gray-100 px-6 px-6 pt-6'>
         <ReportTable>
           <ReportTableHead>
             <tr>
@@ -323,7 +332,7 @@ export const MainContent: React.FC = () => {
         <Section title='Radioactive Contaminants' className='mb-4' />
       </MaxWidthContainer>
 
-      <div className='mb-12 w-full px-6 pt-6'>
+      <div className='mb-12 w-full w-full overflow-scroll px-6 px-6 pt-6'>
         <ReportTable className='mb-6'>
           <ReportTableHead>
             <tr>
@@ -380,7 +389,7 @@ export const MainContent: React.FC = () => {
         <Section title='Synthetic Organic Contaminants including Pesticides and Herbicides' className='mb-4' />
       </MaxWidthContainer>
 
-      <div className='mb-12 w-full px-6 pt-6'>
+      <div className='mb-12 w-full w-full overflow-scroll px-6 px-6 pt-6'>
         <ReportTable className='mb-6'>
           <ReportTableHead>
             <tr>
@@ -416,7 +425,7 @@ export const MainContent: React.FC = () => {
         <Section content={SECTION_COPY.health_advisory.content} className={'mb-6'} />{' '}
       </MaxWidthContainer>
 
-      <div className='mb-12 w-full px-6 pt-6'>
+      <div className='mb-12 w-full w-full overflow-scroll px-6 px-6 pt-6'>
         <ReportTable className='mb-6'>
           <ReportTableHead>
             <tr>
