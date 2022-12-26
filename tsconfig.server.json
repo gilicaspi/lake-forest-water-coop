@@ -10,7 +10,6 @@
     "sourceMap": true,
     "strict": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "declare_modules.d.ts", "server.ts", "./src/gqlNodeTypings.generated.ts", "src/public/*"],
   "exclude": ["node_modules", "tests"],
   "references": [{ "path": "../common" }]
 }
